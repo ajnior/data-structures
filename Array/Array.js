@@ -20,6 +20,18 @@ class Array {
     this.length++;
     this.data[ndx] = elem;
   }
-  deleteAt() {}
-  getElementAtIndex() {}
+  removeAt(ndx) {
+    for (let i = ndx; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+    return this.data;
+  }
+  indexOf(value) {
+    for (let i = 0; i < this.length; i++) {
+      if (this.data[i] == value) return i;
+    }
+    return -1;
+  }
 }
