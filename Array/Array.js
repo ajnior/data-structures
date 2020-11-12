@@ -23,13 +23,3 @@ class Array {
   deleteAt() {}
   getElementAtIndex() {}
 }
-
-const arr = new Array();
-
-arr.push("string 1");
-arr.push("string 2");
-arr.push("string 3");
-// arr.pop();
-arr.insertAt("string 4", 1);
-
-console.log(arr);
