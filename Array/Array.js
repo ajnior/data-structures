@@ -34,4 +34,30 @@ class Array {
     }
     return -1;
   }
+  max() {
+    let max = 0;
+    for (let i = 0; i < this.length; i++) {
+      if (this.data[i] > max) max = this.data[i];
+    }
+    return max;
+  }
+  intersect(arr) {
+    let inter = new Array();
+    for (let i = 0; i < this.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        // remove push
+        if (this.data[i] == arr[j]) inter.push(arr[j]);
+      }
+    }
+    return inter;
+  }
+  reverse() {
+    for (let i = this.length - 2; i > -1; i--) {
+      if (this.data[i]) {
+        this.push(this.data[i]);
+        this.removeAt(i);
+      }
+    }
+    return this.data;
+  }
 }
