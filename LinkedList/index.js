@@ -93,6 +93,23 @@ class LinkedList {
     }
     return arr;
   }
+  reverse() {
+    if (this.isEmpty()) return;
+
+    let previous = this.first;
+    let current = this.first.next;
+    while (current != null) {
+      const next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+      console.log(current);
+    }
+
+    let last = this.first;
+    last.next = null;
+    this.first = previous;
+  }
 }
 
 const list = new LinkedList();
@@ -101,4 +118,7 @@ list.addLast(10);
 list.addLast(20);
 list.addLast(30);
 list.addLast(40);
-console.log(list.toArray());
+list.addLast(50);
+list.addLast(60);
+
+console.log(list.reverse());
