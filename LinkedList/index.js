@@ -110,15 +110,27 @@ class LinkedList {
     last.next = null;
     this.first = previous;
   }
+  getKthFromTheEnd(kth) {
+    if (this.isEmpty()) throw new Error("The LinkedList is empty");
+
+    if (kth < 1) return this.last.value;
+
+    let nodeA = this.first;
+    while (nodeA != null) {
+      let nodeB = nodeA.next;
+      for (let i = 0; i <= kth - 1; i++) {
+        if (nodeB.next == null) return nodeA.value;
+        nodeB = nodeB.next;
+      }
+      nodeA = nodeA.next;
+    }
+  }
 }
 
-const list = new LinkedList();
-
-list.addLast(10);
-list.addLast(20);
-list.addLast(30);
-list.addLast(40);
-list.addLast(50);
-list.addLast(60);
-
-console.log(list.reverse());
+// const list = new LinkedList();
+// list.addLast(10);
+// list.addLast(20);
+// list.addLast(30);
+// list.addLast(40);
+// list.addLast(50);
+// list.addLast(60);
