@@ -125,12 +125,35 @@ class LinkedList {
       nodeA = nodeA.next;
     }
   }
+  printMiddle() {
+    if (this.isEmpty()) throw new Error("The LinkedList is Empty");
+
+    let nodeA = this.first;
+    let nodeB = this.first;
+
+    while (nodeB != this.last && nodeB != null) {
+      if (nodeB.next.next == null) {
+        return `${nodeA.value},${nodeA.next.value}`;
+      }
+      nodeA = nodeA.next;
+      nodeB = nodeB.next.next;
+    }
+
+    return nodeA.value;
+  }
+  hasLoop() {}
 }
 
-// const list = new LinkedList();
-// list.addLast(10);
-// list.addLast(20);
-// list.addLast(30);
-// list.addLast(40);
-// list.addLast(50);
-// list.addLast(60);
+const list = new LinkedList();
+
+list.addLast(10);
+list.addLast(20);
+list.addLast(30);
+list.addLast(40);
+list.addLast(50);
+list.addLast(60);
+list.addLast(70);
+list.addLast(80);
+list.addLast(90);
+
+console.log(list.printMiddle());
