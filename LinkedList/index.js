@@ -141,19 +141,16 @@ class LinkedList {
 
     return nodeA.value;
   }
-  hasLoop() {}
+  hasLoop() {
+    let slow = this.first;
+    let fast = this.first;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow == fast) return true;
+    }
+
+    return false;
+  }
 }
-
-const list = new LinkedList();
-
-list.addLast(10);
-list.addLast(20);
-list.addLast(30);
-list.addLast(40);
-list.addLast(50);
-list.addLast(60);
-list.addLast(70);
-list.addLast(80);
-list.addLast(90);
-
-console.log(list.printMiddle());
